@@ -15,23 +15,39 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
+ * Send expiry notifications task.
  *
- * This is built using the boost template to allow for new theme's using
- * Moodle's new Boost theme engine
- *
- * @package   theme_boost_magnific
- * @copyright 2024 Eduardo kraus (http://eduardokraus.com)
+ * @package   enrol_apply
+ * @author    Romain DELEAU
+ * @copyright IMT Lille Douai <https://imt-lille-douai.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+namespace enrol_apply\task;
 
-$plugin->version = 2025022700;
-$plugin->release = "8.3.5";
-$plugin->maturity = MATURITY_STABLE;
-$plugin->requires = 2022041900;
-$plugin->component = "theme_boost_magnific";
-$plugin->dependencies = [
-    "theme_boost" => 2022041900,
-];
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Send expiry notifications task.
+ */
+class send_expiry_notifications extends \core\task\scheduled_task {
+
+    /**
+     * Name for this task.
+     *
+     * @return string
+     */
+    public function get_name() {
+        return get_string('sendexpirynotificationstask', 'enrol_apply');
+    }
+
+    /**
+     * Run task for sending expiry notifications.
+     */
+    public function execute() {
+        $enrol = enrol_get_plugin('apply');
+        $trace = new \text_progress_trace();
+        $enrol->send_expiry_notifications($trace);
+    }
+
+}

@@ -15,23 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
- *
- * This is built using the boost template to allow for new theme's using
- * Moodle's new Boost theme engine
- *
- * @package   theme_boost_magnific
- * @copyright 2024 Eduardo kraus (http://eduardokraus.com)
+ * Task definition for enrol_apply.
+ * @author    Romain DELEAU
+ * @copyright IMT Lille Douai <imt-lille-douai.fr>
+ * @package   enrol_apply
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2025022700;
-$plugin->release = "8.3.5";
-$plugin->maturity = MATURITY_STABLE;
-$plugin->requires = 2022041900;
-$plugin->component = "theme_boost_magnific";
-$plugin->dependencies = [
-    "theme_boost" => 2022041900,
-];
+$tasks = array(
+    array(
+        'classname' => '\enrol_apply\task\send_expiry_notifications',
+        'blocking' => 0,
+        'minute' => '*/10',
+        'hour' => '*',
+        'day' => '*',
+        'month' => '*',
+        'dayofweek' => '*',
+        'disabled' => 0
+    )
+);
+

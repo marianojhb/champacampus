@@ -1,4 +1,3 @@
-<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,23 +14,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
- *
- * This is built using the boost template to allow for new theme's using
- * Moodle's new Boost theme engine
- *
- * @package   theme_boost_magnific
- * @copyright 2024 Eduardo kraus (http://eduardokraus.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol_apply
+ * @copyright  2016 sudile GbR (http://www.sudile.com)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author     Johannes Burk <johannes.burk@sudile.com>
  */
 
-defined('MOODLE_INTERNAL') || die;
+/**
+ * @module enrol_apply/manage
+ */
+define(['jquery'], function($) {
+    return {
+        init: function() {
+            $('#toggleall').on('change', function() {
+                $('input[name="userenrolments[]"]').prop('checked', $('#toggleall').prop('checked'));
+            });
 
-$plugin->version = 2025022700;
-$plugin->release = "8.3.5";
-$plugin->maturity = MATURITY_STABLE;
-$plugin->requires = 2022041900;
-$plugin->component = "theme_boost_magnific";
-$plugin->dependencies = [
-    "theme_boost" => 2022041900,
-];
+            $('#formaction').on('change', function() {
+                $('#enrol_apply_manage_form').submit();
+            });
+        }
+    };
+});

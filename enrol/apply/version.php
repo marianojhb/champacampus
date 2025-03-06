@@ -15,23 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
- *
- * This is built using the boost template to allow for new theme's using
- * Moodle's new Boost theme engine
- *
- * @package   theme_boost_magnific
- * @copyright 2024 Eduardo kraus (http://eduardokraus.com)
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    enrol_apply
+ * @copyright  emeneo.com (http://emeneo.com/)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author     Flotter Totte <flottertotte@emeneo.com>
+ * @author     Johannes Burk <johannes.burk@sudile.com>
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2025022700;
-$plugin->release = "8.3.5";
+$plugin->version  = 2023101100;
+$plugin->requires = 2011080100;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->requires = 2022041900;
-$plugin->component = "theme_boost_magnific";
-$plugin->dependencies = [
-    "theme_boost" => 2022041900,
-];
+$plugin->release = 'Enrolment upon approval plugin Version 4.1-a';
+$plugin->component = 'enrol_apply';
