@@ -88,8 +88,8 @@
         mix-blend-mode: initial;
     }
     
-    body,
-    #page-wrapper,
+    body:not(.loginbackgroundimage),
+    body:not(.loginbackgroundimage) #page-wrapper,
     &:not([data-basename=academi]) #page,
     #page.drawers .main-inner,
     #region-main {
@@ -146,6 +146,11 @@
             color: var(--bs-nav-drawer, #e8eaed);
         }
     }
+    .block .block-cards span.categoryname,
+    .block .block-cards .btn-link,
+    .block .block-controls .dropdown-toggle {
+        color: var(--bs-gray-500, #adb5bd);
+    }
     .border {
         border-color: rgba(var(--bs-gray-300-rgb, 222, 226, 230), .3) !important;
     }
@@ -189,13 +194,16 @@
         border-color: rgb(var(--color_primary)) !important;
     }
     .btn {
-        color: #d2d2d2;
+        color: var(--bs-gray-200, #e9ecef);
         &.btn-icon:hover,
         &.btn-icon:focus {
             background-color: rgba(var(--bs-gray-200-rgb, 233, 236, 239), .4);
         }
         &.add-content {
             background-color: var(--bs-gray-1000, #1e1e25);
+        }
+        &:hover {
+            color: var(--bs-gray-600, #6c757d);
         }
     }
     .btn.add-section {
@@ -388,6 +396,10 @@
         color: var(--bs-gray-500, #adb5bd);
         background: var(--bs-gray-1000, #1e1e25) url('[[pix:theme|dark/custom-select]]') right 10px center / 8px 10px no-repeat;
         border-color: var(--bs-gray-900, #2e3134);
+        &:disabled {
+            color: var(--bs-gray-1000, #1e1e25);
+            background-color: var(--bs-gray-500, #adb5bd);
+        }
     }
     
     .form-control,
@@ -397,6 +409,15 @@
         color: var(--bs-gray-500, #adb5bd) !important;
         background-color: var(--bs-gray-1000, #1e1e25);
         border: 1px solid var(--bs-gray-900, #2e3134);
+    }
+    .form-control:disabled, .form-control[readonly] {
+        background-color: var(--bs-gray-1000, #1e1e25);
+        opacity: .7;
+    }
+    .form-control:focus {
+        color: var(--bs-gray-400, #ced4da) !important;
+        background-color: var(--bs-gray-800, #393e4f);
+        border-color: none;
     }
     .btn-primary,
     .addtagcoll a,
@@ -512,12 +533,6 @@
     #page-header .crumbs li span {
         background: var(--bs-gray-900, #2e3134);
         color: var(--bs-write, #fff);
-        &:before {
-            border-left: 15px solid var(--bs-gray-1100, #0e0e11);
-        }
-        &:after {
-            border-left: 15px solid #2f2f32;
-        }
     }
     .btn.btn-icon.icons-collapse-expand {
         border: 1px solid #2c2e3a;
@@ -527,11 +542,9 @@
         align-items: center;
         justify-content: center;
         i {
-            font-size: 14px;
             margin-left: 3px;
         }
         + h3 {
-            font-size: 17px;
             a {
                 color: #acbdd9;
             }
@@ -611,7 +624,7 @@
         .modal-content,
         .moodle-dialogue-wrap,
         &.shadow {
-            background-color: var(--bs-nav-drawer, #191a1e);
+            background-color: var(--bs-gray-800, #191a1e);
             border-color: var(--bs-gray-900, #2e3134);
             .modal-header,
             .moodle-dialogue-hd {
@@ -620,10 +633,14 @@
                     color: var(--bs-gray-400, #ced4da);
                 }
                 .btn-close {
-                    background-color: var(--bs-gray-1000, #1e1e25);
+                    background-color: transparent;
                     color: var(--bs-gray-500, #adb5bd);
                     &:before {
+                        display: block;
+                        content: " ";
                         background-image: url('[[pix:theme|dark/close-button]]');
+                        width: 24px;
+                        height: 24px;
                     }
                     span {
                         display: none;
@@ -636,7 +653,12 @@
         }
     }
     .drawer {
-        background: var(--bs-nav-drawer, #191a1e);
+        background: var(--bs-gray-800, #393e4f);
+    }
+    .modal-dialog.modchooser {
+        .modal-footer {
+            display: none;
+        }
     }
     
     // Course content
@@ -764,6 +786,32 @@
         }
     }
     
+    // mod_quiz
+    .jschooser .choosercontainer #chooseform .instruction,
+    .jschooser .choosercontainer #chooseform .typesummary,
+    #page-mod-quiz-edit ul.slots li.section .content,
+    .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-bd {
+        background-color: var(--bs-gray-800, #393e4f);
+        background: var(--bs-gray-800, #393e4f);
+        legend {
+            color: var(--bs-gray-300, #dee2e6);
+        }
+    }
+    .choosercontainer #chooseform .selected {
+        background-color: var(--bs-gray-600, #6c757d);
+    }
+    .path-mod-quiz #mod_quiz_navblock .qnbutton,
+    .que .info {
+        background-color: var(--bs-gray-800, #393e4f);
+    }
+    .que .info,
+    .path-mod-quiz .qnbutton.thispage .thispageholder {
+        border-color: var(--bs-gray-700, #495057);
+    }
+    .que .questionflagimage {
+        filter: invert(1);
+    }
+    
     // alert
     .alert {
         &.alert-info * {
@@ -857,6 +905,15 @@
                 border-color: transparent;
             }
         }
+        .activity-dates {
+            color: var(--bs-gray-300, #dee2e6);
+        }
+        .activity-availability {
+            background-color: var(--bs-gray-1000, #1e1e25);
+        }
+    }
+    .availability-field img {
+        filter: invert(1);
     }
     
     // yui3
@@ -878,6 +935,9 @@
     }
     
     // Icons
+    img.icon {
+        filter: invert(1);
+    }
     .subcategories .coursebox > .info > .coursename a,
     #frontpage-category-names .coursebox > .info > .coursename a,
     #frontpage-category-combo .coursebox > .info > .coursename a {
@@ -916,49 +976,48 @@
         }
     }
     
-     #header.fixed-top .header-menubar .navbar-nav .simplesearchform .btn-open,
-     #header.fixed-top  .popover-region .popover-region-toggle i.icon,
-     #header.fixed-top .header-menubar .navbar-nav .usermenu .dropdown a#user-menu-toggle,
-     #header.fixed-top .header-menubar .navbar-nav .editmode-switch-form .input-group label,
-     #header.fixed-top .usermenu .moodle-actionmenu a.dropdown-toggle,
-     #header.fixed-top .header-logo a.navbar-brand img,
-     #header.fixed-top .header-logo a.navbar-brand span,
-     #header.fixed-top .header-menubar .primary-navigation ul.navbar-nav > li > a,
-     #header .popover-region .popover-region-toggle i.icon,
-    
-     .navbar-light.fixed-top .navbar-nav .show>.nav-link,
-     .navbar-light.fixed-top .navbar-nav .active>.nav-link,
-     .navbar-light.fixed-top .navbar-nav .nav-link.show,
-     .navbar-light.fixed-top .navbar-nav .nav-link.active,
-     .header-menubar .navbar-nav .editmode-switch-form .input-group label,
-     .header-menubar .navbar-nav .usermenu .dropdown a#user-menu-toggle{
+    #header.fixed-top .header-menubar .navbar-nav .simplesearchform .btn-open,
+    #header.fixed-top .popover-region .popover-region-toggle i.icon,
+    #header.fixed-top .header-menubar .navbar-nav .usermenu .dropdown a#user-menu-toggle,
+    #header.fixed-top .header-menubar .navbar-nav .editmode-switch-form .input-group label,
+    #header.fixed-top .usermenu .moodle-actionmenu a.dropdown-toggle,
+    #header.fixed-top .header-logo a.navbar-brand img,
+    #header.fixed-top .header-logo a.navbar-brand span,
+    #header.fixed-top .header-menubar .primary-navigation ul.navbar-nav > li > a,
+    #header .popover-region .popover-region-toggle i.icon,
+    .navbar-light.fixed-top .navbar-nav .show > .nav-link,
+    .navbar-light.fixed-top .navbar-nav .active > .nav-link,
+    .navbar-light.fixed-top .navbar-nav .nav-link.show,
+    .navbar-light.fixed-top .navbar-nav .nav-link.active,
+    .header-menubar .navbar-nav .editmode-switch-form .input-group label,
+    .header-menubar .navbar-nav .usermenu .dropdown a#user-menu-toggle {
         color: var(--topscroll_text) !important;
     }
-     .header-menubar #usernavigation .kraus-layout-dark svg path{
+    .header-menubar #usernavigation .kraus-layout-dark svg path {
         fill: var(--topscroll_text) !important;
     }
     [data-bs-theme=light] .header-menubar .primary-navigation ul.navbar-nav li a,
     [data-bs-theme=light] .header-menubar .navbar-nav .usermenu .dropdown a#user-menu-toggle,
     [data-bs-theme=light] .header-menubar .navbar-nav .editmode-switch-form .input-group label,
     [data-bs-theme=light] .usermenu .moodle-actionmenu a.dropdown-toggle,
-    [data-bs-theme=light] .navbar-light .navbar-nav .show>.nav-link,
-    [data-bs-theme=light] .navbar-light .navbar-nav .active>.nav-link,
+    [data-bs-theme=light] .navbar-light .navbar-nav .show > .nav-link,
+    [data-bs-theme=light] .navbar-light .navbar-nav .active > .nav-link,
     [data-bs-theme=light] .navbar-light .navbar-nav .nav-link.show,
     [data-bs-theme=light] .navbar-light .navbar-nav .nav-link.active,
     [data-bs-theme=light] .header-logo a.navbar-brand img,
-    [data-bs-theme=light] #header .popover-region .popover-region-toggle i.icon{
+    [data-bs-theme=light] #header .popover-region .popover-region-toggle i.icon {
         color: var(--text_color) !important;
     }
-    [data-bs-theme=light] .header-menubar #usernavigation .kraus-layout-dark svg path{
+    [data-bs-theme=light] .header-menubar #usernavigation .kraus-layout-dark svg path {
         fill: var(--text_color);
     }
 }
 @media (prefers-color-scheme: dark) {
     [data-bs-theme=auto] {
         body, html {
-            color-scheme: dark;
+            // color-scheme: dark;
         }
-        @include darkmodecode;
+        // @include darkmodecode;
     }
 }
 [data-bs-theme=dark] {

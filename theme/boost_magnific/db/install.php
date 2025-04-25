@@ -35,6 +35,8 @@ function xmldb_theme_boost_magnific_install() {
         core_plugin_manager::reset_caches();
     }
 
+    set_config("background_color", "#007bc3", "theme_boost_magnific");
+    set_config("background_text_color", "#ffffff", "theme_boost_magnific");
     set_config("theme_color", "theme_color_blue", "theme_boost_magnific");
     set_config("theme_color__color_primary", "#2B4E84", "theme_boost_magnific");
     set_config("theme_color__color_secondary", "#3E65A0", "theme_boost_magnific");
@@ -44,6 +46,7 @@ function xmldb_theme_boost_magnific_install() {
     set_config("frontpage_avaliablecourses_text", "", "theme_boost_magnific");
     set_config("frontpage_avaliablecourses_instructor", 1, "theme_boost_magnific");
 
+    set_config("top_scroll", 0, "theme_boost_magnific");
     set_config("top_scroll_background_color", "#5C5D5F", "theme_boost_magnific");
     set_config("top_scroll_text_color", "#FFFFFF", "theme_boost_magnific");
 
@@ -100,6 +103,12 @@ function xmldb_theme_boost_magnific_install() {
         set_config("frontpage_about_text_{$i}", "", "theme_boost_magnific");
     }
 
+    set_config("enable_accessibility", 1, "theme_boost_magnific");
+    set_config("enable_vlibras", 0, "theme_boost_magnific");
+
+    set_config("background_course_image", 0, "theme_boost_magnific");
+    set_config("customfield_picture_missing", "", "theme_boost_magnific");
+
     set_config("frontpage_about_enable", 0, "theme_boost_magnific");
     set_config("frontpage_about_logo", "", "theme_boost_magnific");
     set_config("frontpage_about_title", get_string("frontpage_about_title_default", "theme_boost_magnific"));
@@ -142,7 +151,7 @@ function xmldb_theme_boost_magnific_install() {
     set_config("contact_phone", "", "theme_boost_magnific");
     set_config("contact_email", "", "theme_boost_magnific");
 
-    set_config("login_theme", "theme_image_login", "theme_boost_magnific");
+    set_config("login_theme", "login_theme_login", "theme_boost_magnific");
     set_config("login_backgroundfoto", "", "theme_boost_magnific");
     set_config("login_backgroundcolor", "", "theme_boost_magnific");
 

@@ -34,7 +34,7 @@
 }}
 
 {{#courses}}
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+    <div class="{{#col}}{{col}}{{/col}} {{^col}}col-lg-4 col-md-6 col-sm-12 mb-3{{/col}}">
         <div class="box-page">
             <div class="thumbnail">
                 <a href="{{{link}}}">
@@ -55,7 +55,9 @@
                         {{/offprice}}
                     </div>
                 {{/cursopreco}}
-                <a href="{{{link}}}" class="btn btn-primary">{{{access}}}</a>
+                {{#access}}
+                    <a href="{{{link}}}" class="btn btn-primary">{{{access}}}</a>
+                {{/access}}
             </div>
         </div>
     </div>
