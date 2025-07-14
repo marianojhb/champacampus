@@ -1,3 +1,32 @@
+# Club Champagnat (members site)
+
+I have implemented a full usable Moodle site for a rugby club in Argentina.
+
+> Managers from all divisions have now have a common tool to keep track of their division and to help the Board with key information.
+
+Courses where converted to divisions and teachers to coaches. It was fun at first, but had been throught a lot of challenges, like having to create a custom script for converting the dictionary of words and their combinations (singular-plural and genre - in Spanish we use genre for lots of nouns and articles).
+
+### Adaptions included 
+- Gradebook system understanding, in order to use metrics for little and young players along its sport carrers over time.
+- Assistance registration to match internal groups (forwards and backs rugby players, place of training, and many other course internal groups classifications)
+- Parents access for the most little ones up to 12 years
+- Custom polls for specific activities like appointing to asados
+- Task activities for uploading medical certificates and union registrations.
+- Personal fields where modified with new custom information
+
+### Custom functions and reports
+- Implemented custom reports for managers, like having the last assistance report at finger tips
+- Directories with phone numbers of each player (standard report is restricted)
+
+### Deployment
+- [Campus Club Champagnat](https://campus.clubchampagnat.com.ar)
+- PHP/MySQL
+- Bootstrap
+
+
+<hr>
+More on moodle:
+
 # Moodle
 
 <p align="center"><a href="https://moodle.org" target="_blank" title="Moodle Website">
