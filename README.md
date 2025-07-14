@@ -1,27 +1,54 @@
-# Club Champagnat (members site)
+# Moodle-based Management System for Rugby Club
 
-I have implemented a full usable Moodle site for a rugby club in Argentina.
+I implemented a fully functional Moodle site for a rugby club in Argentina.
 
-> Managers from all divisions have now have a common tool to keep track of their division and to help the Board with key information.
+Managers from all divisions now share a unified tool to track their teams and provide the Board with critical, organized data.
 
-Courses where converted to divisions and teachers to coaches. It was fun at first, but had been throught a lot of challenges, like having to create a custom script for converting the dictionary of words and their combinations (singular-plural and genre - in Spanish we use genre for lots of nouns and articles).
+## Key Adaptations and Features
 
-### Adaptions included 
-- Gradebook system understanding, in order to use metrics for little and young players along its sport carrers over time.
-- Assistance registration to match internal groups (forwards and backs rugby players, place of training, and many other course internal groups classifications)
-- Parents access for the most little ones up to 12 years
-- Custom polls for specific activities like appointing to asados
-- Task activities for uploading medical certificates and union registrations.
-- Personal fields where modified with new custom information
+- **Divisions as Courses & Coaches as Teachers**  
+  Each rugby division was represented as a Moodle course, with coaches assigned as teachers — enabling role-based access and organization.
 
-### Custom functions and reports
-- Implemented custom reports for managers, like having the last assistance report at finger tips
-- Directories with phone numbers of each player (standard report is restricted)
+- **Language Customization for Spanish**  
+  A custom script was developed to convert default Moodle terminology (e.g., singular/plural forms and gendered nouns/adjectives in Spanish) to fit the rugby context.
 
-### Deployment
-- [Campus Club Champagnat](https://campus.clubchampagnat.com.ar)
-- PHP/MySQL
-- Bootstrap
+- **Gradebook Repurposed**  
+  The gradebook system was adapted to track performance metrics of young players across seasons, supporting long-term development analysis.
+
+- **Attendance Registration with Group Integration**  
+  Attendance tracking was customized to reflect internal classifications like:
+  - Forwards / Backs  
+  - Training location  
+  - Age-level groups
+
+- **Parental Access**  
+  Parent accounts were enabled for players under 12 years old, maintaining security and supervision.
+
+- **Custom Polls**  
+  Used for coordinating team events and social activities, such as voting for weekend barbecues ("asados").
+
+- **Task Activities for Documentation**  
+  Players and families could upload:
+  - Medical certificates  
+  - Rugby union registration forms
+
+- **Extended User Profile Fields**  
+  Personal profile fields were extended to include custom player data relevant to the club.
+
+- **Custom Reports & Tools**
+  - Reports for coaches/managers to monitor attendance and player data  
+  - Directory reports with phone numbers (limited access for privacy)
+
+## Deployment
+
+- **Institution**: Club Champagnat (Campus Club)  
+- **Stack**: PHP / MySQL  
+- **Frontend**: Bootstrap (custom styling)
+
+---
+
+> This project started as a fun experiment but turned into a full operational solution with real-world impact, involving both technical and organizational challenges.
+
 
 
 <hr>
