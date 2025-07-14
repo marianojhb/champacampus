@@ -44,6 +44,7 @@ Managers from all divisions now share a unified tool to track their teams and pr
 - **Institution**: Club Champagnat (Campus Club)  
 - **Stack**: PHP / MySQL  
 - **Frontend**: Bootstrap (custom styling)
+- Ready in production at [Campus](https://campus.clubchampagnat.com.ar)
 
 ---
 
